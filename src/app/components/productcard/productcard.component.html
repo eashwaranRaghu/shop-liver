@@ -1,0 +1,12 @@
+<div>
+  <div class="card" style="width: 18rem;">
+    <img class="card-img-top" *ngIf="product.imageUrl" [src]="product.imageUrl" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{product.title}}</h5>
+      <p class="card-text">{{product.price | currency:'INR':'symbol-narrow'}}</p>
+      <br>
+      <p class="card-text">{{product.category | uppercase}} Shop</p>
+      <a class="btn btn-primary">View</a>
+    </div>
+  </div>
+</div>

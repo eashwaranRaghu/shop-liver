@@ -1,0 +1,37 @@
+
+<div class="justify-content-center mx-auto row">
+  <button class="btn btn-lg btn-outline-dark align-self-center col-6" routerLink="/admin/products/new">New Product</button>
+</div>
+
+
+<hr>
+
+<p>
+  <input
+    #query
+    (keyup)="filter(query.value)"
+    type="text" class="form-control" placeholder="Search...">
+</p>
+
+<hr>
+
+<table class="table table-hover table-dark">
+  <thead>
+  <tr>
+    <th>#</th>
+    <th>Product</th>
+    <th>Price</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of products; index as i">
+      <th scope="row">{{i+1}}</th>
+      <td>{{item.title}}</td>
+      <td>{{item.price | currency:'INR':'symbol-narrow'}}</td>
+      <td><button class="btn btn-info" [routerLink]="'/admin/products/'+item.id">Edit</button></td>
+      <td><button class="btn btn-info" (click)="delete(item.id)">Delete</button></td>
+    </tr>
+  </tbody>
+</table>
