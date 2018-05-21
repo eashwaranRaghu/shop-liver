@@ -26,7 +26,7 @@ firebase.json
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
-
+status
 # misc
 /.sass-cache
 /connect.lock
