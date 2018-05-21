@@ -1,3 +1,26 @@
+<div>
+  <div *ngFor="let p of cartList">
+
+    <div class="card w-75" *ngIf="p.count > 0 && p.product">
+      <div class="card-body">
+        <h5 class="card-title">{{p.product.title}}</h5>
+        <p class="card-text">{{p.product.category}}</p>
+        <p class="card-text">Number: {{p.count}}</p>
+        <p class="card-text">Cost: {{p.product.price | currency:'INR':'symbol'}}</p>
+        <p class="card-text">Total Cost : {{p.product.price * p.count | currency:'INR':'symbol'}}</p>
+        <a class="btn btn-primary" (click)="inc(p.id)">+</a>
+        <a class="btn btn-primary" (click)="dec(p.id)">-</a>
+        <a class="btn btn-primary" (click)="empty(p.id)">Remove Item</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+<hr>
+
+<h1>Total Amount = {{counter}}</h1>
+
+<hr>
 <div class="justify-content-center mx-auto row">
-  <button class="btn btn-lg btn-success align-self-center col-6" routerLink="/checkout">Check Out</button>
+  <button class="btn btn-lg btn-success align-self-center col-6" (click)="addtoOrders()" routerLink="/checkout">Check Out</button>
 </div>

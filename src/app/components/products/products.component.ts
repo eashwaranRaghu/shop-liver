@@ -15,12 +15,12 @@ export class ProductsComponent implements OnInit, OnDestroy {
   categories: Observable<Category[]>;
   filteredProducts;
   subs1: Subscription;
-  subs2: Subscription;
+  //subs2: Subscription;
   constructor(private productService: ProductService, private categoryService: CategoryService) {
     this.subs1= this.productService.getAll().subscribe(x =>
     {
       this.products = x;
-    })
+    });
     this.categories = this.categoryService.getAll();
   }
 
@@ -29,6 +29,9 @@ export class ProductsComponent implements OnInit, OnDestroy {
   ngOnDestroy(){
     this.subs1.unsubscribe();
    // this.subs2.unsubscribe();
+  }
+  filter(c){
+
   }
 
 }

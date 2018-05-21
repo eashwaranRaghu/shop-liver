@@ -24,7 +24,7 @@ const appRoutes: Routes = [
   { path: 'products', component: ProductsComponent },
   { path: 'orders', component: OrdersComponent },
 
-  { path: 'checkout', component: CheckoutComponent, canActivate: [AuthGuard]},
+  { path: 'checkout', component: CheckoutComponent, canActivate: [AuthGuard, AdminGuard]},
 
   { path: 'admin/orders', component: ManageordersComponent, canActivate: [AuthGuard, AdminGuard] },
   { path: 'admin/products', component: ManageproductsComponent, canActivate: [AuthGuard, AdminGuard] },

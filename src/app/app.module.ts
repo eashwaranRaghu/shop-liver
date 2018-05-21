@@ -29,6 +29,8 @@ import {FormsModule} from "@angular/forms";
 import {ProductService} from "./services/product.service";
 import {CustomFormsModule} from "ng2-validation";
 import { ProductcardComponent } from './components/productcard/productcard.component';
+import {CartService} from "./services/cart.service";
+import {CheckoutService} from "./services/checkout.service";
 @NgModule({
   declarations: [
     AppComponent,
@@ -61,7 +63,9 @@ import { ProductcardComponent } from './components/productcard/productcard.compo
     AngularFirestore,
     CategoryService,
     ProductService,
-    CustomFormsModule
+    CustomFormsModule,
+    CartService,
+    CheckoutService
   ],
   bootstrap: [AppComponent]
 })

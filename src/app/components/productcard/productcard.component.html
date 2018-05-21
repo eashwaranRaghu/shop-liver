@@ -6,7 +6,7 @@
       <p class="card-text">{{product.price | currency:'INR':'symbol-narrow'}}</p>
       <br>
       <p class="card-text">{{product.category | uppercase}} Shop</p>
-      <a class="btn btn-primary">View</a>
+      <a class="btn btn-primary" (click)="Add(1)">Add to cart</a>
     </div>
   </div>
 </div>

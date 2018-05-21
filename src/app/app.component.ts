@@ -16,10 +16,11 @@ export class AppComponent {
       (x) =>
       {
         if(x){
+          localStorage.setItem('user', x.uid );
           this.userService.save(x);
           let returnurl = localStorage.getItem('returnUrl');
           this.router.navigateByUrl(returnurl);
-          this.db.collection('users').doc(x.uid).valueChanges().subscribe((y: User) => localStorage.setItem('admin', ''+y.admin));
+          this.db.collection('users').doc(x.uid).valueChanges().subscribe((y: User) => localStorage.setItem('admin', ''+ y.admin));
         }
       }
     );
