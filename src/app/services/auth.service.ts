@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 import * as fb from "firebase";
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/observable/of';
+import {AngularFirestore} from "angularfire2/firestore";
 
 //import { FirebaseAuth } from '@firebase/auth-types';
 //import * as firebase from 'firebase';
@@ -32,4 +33,5 @@ export class AuthService {
   logout(){
     this.auth.auth.signOut();
   }
+
 }

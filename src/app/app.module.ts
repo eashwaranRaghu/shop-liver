@@ -18,7 +18,9 @@ import { OrdersComponent } from './components/orders/orders.component';
 
 import {environment} from '../environments/environment';
 
-import { AngularFireModule } from 'angularfire2';
+import {AngularFireModule, FirebaseOptionsToken,
+  FirebaseAppNameToken,
+  FirebaseAppConfigToken} from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import {AngularFireStorageModule} from "angularfire2/storage";
@@ -49,7 +51,7 @@ import {CheckoutService} from "./services/checkout.service";
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AngularFireModule.initializeApp(environment.firebasee),
+    AngularFireModule,
     AngularFireAuthModule,
     AngularFireDatabaseModule,
     AngularFireStorageModule,
@@ -65,7 +67,10 @@ import {CheckoutService} from "./services/checkout.service";
     ProductService,
     CustomFormsModule,
     CartService,
-    CheckoutService
+    CheckoutService,
+    { provide: FirebaseOptionsToken, useValue: environment.firebasee },
+    { provide: FirebaseAppNameToken, useValue: 'stalldata' },
+    { provide: FirebaseAppConfigToken, useValue: undefined }
   ],
   bootstrap: [AppComponent]
 })

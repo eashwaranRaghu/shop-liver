@@ -26,7 +26,7 @@ export class ManageproductsComponent implements OnInit, OnDestroy{
     this.subscription.unsubscribe();
   }
   filter(query){
-
+    console.log(query);
   }
   delete(id){
     this.productservice.delete(id);

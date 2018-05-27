@@ -11,7 +11,7 @@ import 'rxjs/add/operator/take'
 })
 export class NewproductComponent implements OnInit {
   categories;
-  product = {};
+  product;
   id:string = null;
   edit: boolean = false;
   constructor(

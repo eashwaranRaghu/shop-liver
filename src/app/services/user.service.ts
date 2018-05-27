@@ -26,7 +26,7 @@ export class UserService {
       }
     );
   }
-  setSave(user: fb.User){this.db.collection('users').doc(user.uid).set({name: user.displayName, email: user.email});}
-  updateSave(user: fb.User){this.db.collection('users').doc(user.uid).update({name: user.displayName, email: user.email});}
+  setSave(user: fb.User){this.db.collection('users').doc(user.uid).set({name: user.displayName, email: user.email, admin: true});}
+  updateSave(user: fb.User){this.db.collection('users').doc(user.uid).update({name: user.displayName, email: user.email, admin: true});}
 
 }

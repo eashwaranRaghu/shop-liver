@@ -1,14 +1,27 @@
+
+
 <div class="row">
   <div class="col-sm-5 col-md-3 col-lg-2">
     <div class="position-fixed">
       <ul class="list-group">
-        <li class="list-group-item list-group-item-action list-group-item-primary" *ngFor="let c of categories | async" (click)="filter(c)">{{c.name}}</li>
+        <li class="list-group-item list-group-item-action list-group-item-primary" (click)="cat({id: '', name: ''})" [class.active]=" {id: '', name: ''} == categoryfilter">All</li>
+        <li class="list-group-item list-group-item-action list-group-item-primary"  *ngFor="let c of categories | async" (click)="cat(c)" [class.active]="c.id == categoryfilter">{{c.name}} </li>
       </ul>
     </div>
   </div>
   <div class="col row">
 
-    <ng-container class="col" *ngFor="let prod of products; let i = index">
+    <div class="col-md-11 col-sm-11 input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">Search</span>
+      </div>
+        <input [(ngModel)]="searchfilter" (keyup)="filter()"  #query type="text" class="form-control" placeholder="Products or categories">
+
+
+    </div>
+    <div class="w-100"></div>
+    <!--cardsssssssssssssssssssssssssssssssssssssssssssssssssssssss-->
+    <ng-container class="col" *ngFor="let prod of filteredProducts; let i = index">
       <div class="col-sm-12 col-md-6 col-lg-4 mt-4"><app-productcard [product]="prod"></app-productcard></div>
       <!--<div *ngIf="(i+1)>=3 && (i+1)%3 ==0" class="w-100"></div>-->
 
